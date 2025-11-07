@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Koperasi ICARE</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- my style -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Navbar start -->
+    <nav class="navbar">
+      <a href="#" class="navbar-logo"
+        >KOPERASI<span> SERUMPUN SERAGAM SELARAS</span></a
+      >
+      <div class="navbar-nav">
+        <a href="#home">Home</a>
+        <a href="#about">Tentang Kami</a>
+        <a href="#menu">Menu</a>
+        <a href="#contact">Kontak</a>
+      </div>
+
+      <div class="navbar-extra">
+        <a href="#" id="search"><i data-feather="search"></i></a>
+        <a href="#" id="shopping-cart"><i data-feather="shopping-cart"></i></a>
+        <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+      </div>
+    </nav>
+
+    <!-- Search Form -->
+    <div class="search-form" id="search-form">
+      <input type="text" id="search-input" placeholder="Cari produk..." />
+      <button onclick="searchData()">Cari</button>
+    </div>
+
+    <!-- Navbar end -->
+
+    <!-- Hero sction start -->
+    <section class="hero" id="home">
+      <main class="content">
+        <h1>Koperasi<span> DARI PETANI, OLEH PETANI, UNTUK PETANI</span></h1>
+        <p>Koperasi Primer Konsumsi Syariah.</p>
+        <a href="#contact" class="cta">Beli Sekarang</a>
+      </main>
+    </section>
+    <!-- Hero sction end -->
+
+    <!-- About section start -->
+    <section id="about" class="about">
+      <h2><span>Tentang</span> Kami</h2>
+      <div class="row">
+        <div class="about-img">
+          <img src="img/2.jpg" alt="Tentang Kami" />
+        </div>
+
+        <div class="content">
+          <h3>Profil Koperasi Kami</h3>
+          <p>
+            "Koperasi kami hadir sebagai mitra terpercaya para petani, dengan
+            menyediakan berbagai produk unggulan yang mendukung kemudahan usaha
+            tani dan peningkatan kesejahteraan. Kami menyediakan jagung pipil
+            kering berkualitas, sarana produksi (saprodi) pertanian, benih
+            unggul, hingga herbisida yang efektif. Melalui layanan ini, kami
+            berkomitmen untuk mendorong produktivitas, menjaga keberlanjutan
+            usaha tani, serta mewujudkan petani yang lebih sejahtera."
+          </p>
+          <p>
+            Bergabung dengan koperasi kami memberikan berbagai keuntungan,
+            antara lain: akses mudah terhadap produk pertanian dengan harga
+            lebih terjangkau, jaminan kualitas barang yang digunakan, adanya
+            pendampingan dan informasi terkait budidaya, serta peluang untuk
+            memperoleh keuntungan bersama melalui sistem bagi hasil koperasi.
+            Dengan demikian, petani tidak hanya dimudahkan dalam memenuhi
+            kebutuhan usahanya, tetapi juga memperoleh manfaat ekonomi yang
+            berkelanjutan."
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- About section end -->
+
+    <!-- Menu section start -->
+
+    <section id="menu" class="menu">
+      <h2><span>Produk</span> Kami</h2>
+      <p>
+        Pilih produk favorit Anda selama stock tersedia-Harga dapat berubah
+        sewaktu-waktu sesuai harga pasar-Pelayanan Purna jual dengan syarat dan
+        ketentuan berlaku.
+      </p>
+      <div class="row">
+        <div class="menu-card">
+          <img src="img/p1.jpg" alt="doc-kub" class="menu-card-img" />
+          <h3 class="menu-card-title">- Benih & Herbisida -</h3>
+          <p class="menu-card-price">Klik Untuk Melihat Produk</p>
+          <button onclick="addToCart('DOC KUB', 700000)">Tambah</button>
+        </div>
+        <div class="menu-card">
+          <img src="img/p2.jpg" alt="ayam-kub1" class="menu-card-img" />
+          <h3 class="menu-card-title">- Jagung Pipil Kering -</h3>
+          <p class="menu-card-price">
+            Klik Untuk Melihat Produk
+            <button onclick="addToCart('ayam kub1', 36000)">Tambah</button>
+          </p>
+        </div>
+        <div class="menu-card">
+          <img src="img/p3.jpg" alt="ayam-kub2" class="menu-card-img" />
+          <h3 class="menu-card-title">- Benih -</h3>
+          <p class="menu-card-price">
+            Klik Untuk Melihat Produk
+            <button onclick="addToCart('ayam kub2', 39000)">Tambah</button>
+          </p>
+        </div>
+        <div class="menu-card">
+          <img src="img/p4.jpg" alt="ayam-kub3" class="menu-card-img" />
+          <h3 class="menu-card-title">- Saprodi -</h3>
+          <p class="menu-card-price">
+            Klik Untuk Melihat Produk
+            <button onclick="addToCart('ayam-kub3', 42000)">Tambah</button>
+          </p>
+        </div>
+        
+    </section>
+
+    <!-- Menu section end -->
+
+    <!-- Shopping Cart Section start-->
+    <section id="cart" class="menu">
+      <h2><span>Keranjang</span> Belanja</h2>
+      <ul id="cart-items"></ul>
+      <p>
+        <strong>Total: Rp <span id="cart-total">0</span></strong>
+      </p>
+    </section>
+
+    <script>
+      let cart = [];
+
+      function addToCart(name, price) {
+        // cek kalau produk sudah ada, tambahkan jumlah
+        let existing = cart.find((item) => item.name === name);
+        if (existing) {
+          existing.quantity++;
+        } else {
+          cart.push({ name, price, quantity: 1 });
+        }
+        renderCart();
+      }
+
+      function removeFromCart(index) {
+        cart.splice(index, 1);
+        renderCart();
+      }
+
+      function updateQuantity(index, newQty) {
+        if (newQty <= 0) {
+          removeFromCart(index);
+        } else {
+          cart[index].quantity = newQty;
+        }
+        renderCart();
+      }
+
+      function renderCart() {
+        const cartItems = document.getElementById("cart-items");
+        cartItems.innerHTML = "";
+        let total = 0;
+
+        cart.forEach((item, index) => {
+          let li = document.createElement("li");
+          li.innerHTML = `
+        ${item.name} - Rp ${item.price} x 
+        <input type="number" min="1" value="${item.quantity}" 
+               onchange="updateQuantity(${index}, this.value)">
+        = Rp ${item.price * item.quantity}
+        <button onclick="removeFromCart(${index})">Hapus</button>
+      `;
+          cartItems.appendChild(li);
+          total += item.price * item.quantity;
+        });
+
+        document.getElementById("cart-total").textContent = total;
+      }
+    </script>
+
+    <!-- Shopping Cart Section end -->
+
+    <!-- Contact Section Start -->
+    <section id="contact" class="contact">
+      <h2><span>Kontak</span> Kami</h2>
+      <p>Silakan isi form di bawah untuk menghubungi kami.</p>
+      <div class="row">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3942.825351936465!2d116.23417207501632!3d-8.802472991250092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zOMKwNDgnMDguOSJTIDExNsKwMTQnMTIuMyJF!5e0!3m2!1sid!2sid!4v1762477863650!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>"
+         </iframe>
+        <form
+          action="https://docs.google.com/forms/d/e/1FAIpQLSeU1xoSGdzUV8Ous1Mweww1qscEve1JjUXjRi7e6Ea57bNirg/formResponse"
+          method="POST"
+          target="_blank"
+          id="contactForm"
+        >
+          <div class="input-group">
+            <i data-feather="user"></i>
+            <input
+              type="text"
+              name="entry.1793450906"
+              placeholder="nama"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <i data-feather="mail"></i>
+            <input
+              type="email"
+              name="entry.980399524"
+              placeholder="Email"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <i data-feather="phone"></i>
+            <input type="text" name="entry.453792825" placeholder="no-telp" />
+          </div>
+          <div class="input-group">
+            <i data-feather="message-square"></i>
+            <textarea
+              name="entry.1905674070"
+              placeholder="Pesan"
+              required
+            ></textarea>
+          </div>
+          <button type="submit" id="submitBtn" class="btn">Kirim Pesan</button>
+          <p id="formMessage" class="fade-msg"></p>
+        </form>
+      </div>
+    </section>
+    <!-- Contact Section End -->
+
+    <!-- Footer section Start -->
+    <footer>
+      <div class="social">
+        <a href=https://www.instagram.com/koperasi_3s?igsh=eHpzMDh6MGlheTk2
+          ><i data-feather="instagram"></i
+        ></a>
+        <a
+          href=https://www.tiktok.com/@serumpun.seragam?_r=1&_t=ZS-91BhOumgxGC
+          target="_blank"
+          aria-label="tiktok"
+        >
+          <img src="img/tiktok.png" alt="tiktok" class="tiktok-icon" />
+        </a>
+        <a href=https://www.facebook.com/share/19nxpaPSY3/?mibextid=wwXIfr
+          ><i data-feather="facebook"></i
+        ></a>
+      </div>
+
+      <div class="links">
+        <a href="#home">Home</a>
+        <a href="#about">Tentang Kami</a>
+        <a href="#menu">Menu Kami</a>
+        <a href="#contact">Kontak Kami</a>
+      </div>
+
+      <div class="credit">
+        <p>created by <a href="">putucakra</a>. &copy; 2025</p>
+      </div>
+    </footer>
+    <script></script>
+
+    <!-- Footer section End -->
+
+    <!-- My Javascript -->
+    <script src="js/script.js"></script>
+
+    <script>
+      const form = document.getElementById("contactForm");
+      const msg = document.getElementById("formMessage");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault(); // cegah pindah halaman
+
+        const formData = new FormData(form);
+
+        fetch(
+          "https://docs.google.com/forms/d/e/1FAIpQLSeU1xoSGdzUV8Ous1Mweww1qscEve1JjUXjRi7e6Ea57bNirg/formResponse",
+          {
+            method: "POST",
+            body: formData,
+            mode: "no-cors",
+          }
+        )
+          .then(() => {
+            msg.style.display = "block"; // tampilkan pesan sukses
+            form.reset(); // kosongkan form
+          })
+          .catch(() => {
+            msg.style.display = "block";
+            msg.style.color = "red";
+            msg.textContent = "❌ Gagal mengirim, coba lagi!";
+          });
+      });
+    </script>
+
+    <!-- JavaScript (tombol loading + pesan sukses/error) -->
+
+    <script>
+      const form = document.getElementById("contactForm");
+      const msg = document.getElementById("formMessage");
+      const btn = document.getElementById("submitBtn");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+
+        // Ubah tombol jadi "Mengirim..."
+        btn.disabled = true;
+        btn.textContent = "Mengirim...";
+
+        fetch(form.action, {
+          method: "POST",
+          body: formData,
+          mode: "no-cors",
+        })
+          .then(() => {
+            msg.textContent = "✅ Pesan berhasil dikirim!";
+            msg.style.color = "lightgreen";
+            msg.classList.add("show");
+            form.reset();
+          })
+          .catch(() => {
+            msg.textContent = "❌ Gagal mengirim, coba lagi!";
+            msg.style.color = "red";
+            msg.classList.add("show");
+          })
+          .finally(() => {
+            btn.disabled = false;
+            btn.textContent = "Kirim Pesan";
+          });
+      });
+    </script>
+  </body>
+</html>
